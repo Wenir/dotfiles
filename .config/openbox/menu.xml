@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+    <menu id="system-menu" label="System">
+        <item label="Openbox Configuration Manager">
+            <action name="Execute">
+                <command>obconf</command>
+                <startupnotify><enabled>yes</enabled></startupnotify>
+            </action>
+        </item>
+        <item label="Manage Cups Printers">
+            <action name="Execute">
+                <command>xdg-open http://localhost:631/</command>
+                <startupnotify>
+                    <enabled>no</enabled>
+                    <icon>cups</icon>
+                </startupnotify>
+            </action>
+        </item>
+        <separator />
+        <item label="Reconfigure Openbox">
+            <action name="Reconfigure" />
+        </item>
+    </menu>
+    <menu id="moc-pipe" label="_Music" execute="/home/wenir/.moc/menu.sh" />
+    <menu id="wenir-menu" label="_Quick access">
+        <item label="_Console">
+            <action name="Execute">
+                <command>evilvte</command>
+                <startupnotify><enabled>yes</enabled></startupnotify>
+            </action>
+        </item>
+        <item label="_Vim">
+            <action name="Execute">
+                <command>qvim</command>
+                <startupnotify><enabled>yes</enabled></startupnotify>
+            </action>
+        </item>
+        <item label="K_dbg">
+            <action name="Execute">
+                <command>kdbg</command>
+                <startupnotify><enabled>yes</enabled></startupnotify>
+            </action>
+        </item>
+        <item label="_Browser">
+            <action name="Execute">
+                <command>chromium</command>
+                <startupnotify><enabled>yes</enabled></startupnotify>
+            </action>
+        </item>
+        <menu id="wenir-misc" label="Mi_sk">
+            <item label="_Exit">
+                <action name="Execute">
+                    <command>oblogout</command>
+                </action>
+            </item>
+            <item label="_Reconfigure Openbox">
+                <action name="Reconfigure" />
+            </item>
+        </menu>
+        <menu id="date-menu" label="Date" execute="/home/wenir/.moc/date-menu" />
+    </menu>
+
+    <menu id="root-menu" label="Openbox 3">
+        <menu id="moc-pipe"/>
+        <menu id="wenir-menu"/>
+        <menu id="xdg-menu" label="XDG Menu" execute="cat /var/cache/xdg-menu/openbox/menu.xml"/>
+        <menu id="system-menu"/>
+        <separator />
+        <item label="Exit">
+            <action name="Execute">
+                <command>oblogout</command>
+            </action>
+        </item>
+    </menu>
+
+</openbox_menu>

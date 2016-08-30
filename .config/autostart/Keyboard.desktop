@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/wenir/.keyboard.sh
+X-GNOME-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name[en_US]=Keyboard
+Comment[en_US]=Set the custom keyboard layout
+X-GNOME-Autostart-Delay=5

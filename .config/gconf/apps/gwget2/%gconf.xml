@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="default_height" mtime="1471545483" type="int" value="397"/>
+	<entry name="position_y" mtime="1471545483" type="int" value="355"/>
+	<entry name="position_x" mtime="1471545483" type="int" value="47"/>
+	<entry name="default_width" mtime="1471545483" type="int" value="1863"/>
+	<entry name="view_statusbar" mtime="1471449630" type="bool" value="true"/>
+	<entry name="view_toolbar" mtime="1471449630" type="bool" value="true"/>
+	<entry name="n_downloads" mtime="1471546276" type="int" value="1"/>
+</gconf>

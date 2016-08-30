@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="file_size" mtime="1471546276" type="string">
+		<stringvalue>7795671040</stringvalue>
+	</entry>
+	<entry name="state" mtime="1471546276" type="int" value="5"/>
+	<entry name="dir" mtime="1471546276" type="string">
+		<stringvalue>/disks/Files/</stringvalue>
+	</entry>
+	<entry name="filename" mtime="1471546276" type="string">
+		<stringvalue>ru_visual_studio_enterprise_2015_with_update_3_x86_x64_dvd_8923263.iso?t=d95c54a2-8755-4b20-a35a-30a1ec71778b&amp;e=1471545476&amp;h=608a029e89c160c6d6d59b718bd28bba</stringvalue>
+	</entry>
+	<entry name="url" mtime="1471546276" type="string">
+		<stringvalue>http://dl.msdn.com/db/ru_visual_studio_enterprise_2015_with_update_3_x86_x64_dvd_8923263.iso?t=d95c54a2-8755-4b20-a35a-30a1ec71778b&amp;e=1471545476&amp;h=608a029e89c160c6d6d59b718bd28bba</stringvalue>
+	</entry>
+</gconf>

@@ -1,0 +1,148 @@
+xkb_symbols "my_us" {
+    include "us"
+
+    //
+    // Separate left and right shift
+    //
+
+    key <RTSH> {
+      type[Group1]="ONE_LEVEL",
+      symbols[Group1] = [ ISO_Level3_Shift ]
+    };
+
+    replace key <LVL3> {
+      type[Group1] = "ONE_LEVEL",
+      symbols[Group1] = [ ISO_Level3_Shift ]
+    };
+    modifier_map Mod5 { <LVL3> };
+
+    // Swap ` and ~
+
+    //             Unmodified       LShift          RShift           Both Shifts
+
+    key <TLDE> { [ asciitilde,      VoidSymbol,     grave,           VoidSymbol  ] };
+    key <AE01> { [ 1,               VoidSymbol,     exclam,          VoidSymbol  ] };
+    key <AE02> { [ 2,               VoidSymbol,     at,              VoidSymbol  ] };
+    key <AE03> { [ 3,               VoidSymbol,     numbersign,      VoidSymbol  ] };
+    key <AE04> { [ 4,               VoidSymbol,     dollar,          VoidSymbol  ] };
+    key <AE05> { [ 5,               VoidSymbol,     percent,         VoidSymbol  ] };
+    key <AE06> { [ 6,               asciicircum,    asciicircum,     VoidSymbol  ] };
+    key <AE07> { [ 7,               ampersand,      VoidSymbol,      VoidSymbol  ] };
+    key <AE08> { [ 8,               asterisk,       VoidSymbol,      VoidSymbol  ] };
+    key <AE09> { [ 9,               parenleft,      VoidSymbol,      VoidSymbol  ] };
+    key <AE10> { [ 0,               parenright,     VoidSymbol,      VoidSymbol  ] };
+    key <AE11> { [ minus,           underscore,     VoidSymbol,      VoidSymbol  ] };
+    key <AE12> { [ equal,           plus,           VoidSymbol,      VoidSymbol  ] };
+
+    key <AD01> { [ q,               VoidSymbol,     Q,               VoidSymbol  ] };
+    key <AD02> { [ w,               VoidSymbol,     W,               VoidSymbol  ] };
+    key <AD03> { [ e,               VoidSymbol,     E,               VoidSymbol  ] };
+    key <AD04> { [ r,               VoidSymbol,     R,               VoidSymbol  ] };
+    key <AD05> { [ t,               VoidSymbol,     T,               VoidSymbol  ] };
+    key <AD06> { [ y,               Y,              VoidSymbol,      VoidSymbol  ] };
+    key <AD07> { [ u,               U,              VoidSymbol,      VoidSymbol  ] };
+    key <AD08> { [ i,               I,              VoidSymbol,      VoidSymbol  ] };
+    key <AD09> { [ o,               O,              VoidSymbol,      VoidSymbol  ] };
+    key <AD10> { [ p,               P,              VoidSymbol,      VoidSymbol  ] };
+    key <AD11> { [ bracketleft,	    braceleft,      VoidSymbol,      VoidSymbol  ] };
+    key <AD12> { [ bracketright,    braceright,     VoidSymbol,      VoidSymbol  ] };
+    key <BKSL> { [ backslash,       bar,            VoidSymbol,      VoidSymbol  ] };
+
+    key <AC01> { [ a,               VoidSymbol,     A,               VoidSymbol  ] };
+    key <AC02> { [ s,               VoidSymbol,     S,               VoidSymbol  ] };
+    key <AC03> { [ d,               VoidSymbol,     D,               VoidSymbol  ] };
+    key <AC04> { [ f,               VoidSymbol,     F,               VoidSymbol  ] };
+    key <AC05> { [ g,               VoidSymbol,     G,               VoidSymbol  ] };
+    key <AC06> { [ h,               H,              VoidSymbol,      VoidSymbol  ] };
+    key <AC07> { [ j,               J,              VoidSymbol,      VoidSymbol  ] };
+    key <AC08> { [ k,               K,              VoidSymbol,      VoidSymbol  ] };
+    key <AC09> { [ l,               L,              VoidSymbol,      VoidSymbol  ] };
+    key <AC10> { [ semicolon,       colon,          VoidSymbol,      VoidSymbol  ] };
+    key <AC11> { [ apostrophe,      quotedbl,       VoidSymbol,      VoidSymbol  ] };
+
+    key <AB01> { [ z,               VoidSymbol,     Z,               VoidSymbol  ] };
+    key <AB02> { [ x,               VoidSymbol,     X,               VoidSymbol  ] };
+    key <AB03> { [ c,               VoidSymbol,     C,               VoidSymbol  ] };
+    key <AB04> { [ v,               VoidSymbol,     V,               VoidSymbol  ] };
+    key <AB05> { [ b,               VoidSymbol,     B,               VoidSymbol  ] };
+    key <AB06> { [ n,               N,              VoidSymbol,      VoidSymbol  ] };
+    key <AB07> { [ m,               M,              VoidSymbol,      VoidSymbol  ] };
+    key <AB08> { [ comma,           less,           VoidSymbol,      VoidSymbol  ] };
+    key <AB09> { [ period,          greater,        VoidSymbol,      VoidSymbol  ] };
+    key <AB10> { [ slash,           question,       VoidSymbol,      VoidSymbol  ] };
+    key <CAPS> { [NoSymbol],
+                 actions[Group1]=[ NoAction(), LockGroup(group=2) ],
+                 actions[Group2]=[ LockGroup(group=1), NoAction() ] };
+};
+
+xkb_symbols "my_ru" {
+    include "ru"
+
+    //
+    // Separate left and right shift
+    //
+
+    key <RTSH> {
+      type[Group1]="ONE_LEVEL",
+      symbols[Group1] = [ ISO_Level3_Shift ]
+    };
+
+    replace key <LVL3> {
+      type[Group1] = "ONE_LEVEL",
+      symbols[Group1] = [ ISO_Level3_Shift ]
+    };
+    modifier_map Mod5 { <LVL3> };
+
+    //             Unmodified       LShift           RShift           Both Shifts
+
+    key <TLDE> { [ Cyrillic_io,      VoidSymbol,       Cyrillic_IO,     VoidSymbol  ] };
+    key <AE01> { [ 1,                VoidSymbol,       exclam,          VoidSymbol  ] };
+    key <AE02> { [ 2,                VoidSymbol,       quotedbl,        VoidSymbol  ] };
+    key <AE03> { [ 3,                VoidSymbol,       numerosign,      VoidSymbol  ] };
+    key <AE04> { [ 4,                VoidSymbol,       semicolon,       VoidSymbol  ] };
+    key <AE05> { [ 5,                VoidSymbol,       percent,         VoidSymbol  ] };
+    key <AE06> { [ 6,                colon,            colon,           VoidSymbol  ] };
+    key <AE07> { [ 7,                question,         VoidSymbol,      VoidSymbol  ] };
+    key <AE08> { [ 8,                asterisk,         U20B4,           VoidSymbol  ] };
+    key <AE09> { [ 9,                parenleft,        VoidSymbol,      VoidSymbol  ] };
+    key <AE10> { [ 0,                parenright,       VoidSymbol,      VoidSymbol  ] };
+    key <AE11> { [ minus,            underscore,       VoidSymbol,      VoidSymbol  ] };
+    key <AE12> { [ equal,            plus,             VoidSymbol,      VoidSymbol  ] };
+
+    key <AD01> { [ Cyrillic_shorti,  VoidSymbol,       Cyrillic_SHORTI, VoidSymbol  ] };
+    key <AD02> { [ Cyrillic_tse,     VoidSymbol,       Cyrillic_TSE,    VoidSymbol  ] };
+    key <AD03> { [ Cyrillic_u,       VoidSymbol,       Cyrillic_U,      VoidSymbol  ] };
+    key <AD04> { [ Cyrillic_ka,      VoidSymbol,       Cyrillic_KA,     VoidSymbol  ] };
+    key <AD05> { [ Cyrillic_ie,      VoidSymbol,       Cyrillic_IE,     VoidSymbol  ] };
+    key <AD06> { [ Cyrillic_en,      Cyrillic_EN,      VoidSymbol,      VoidSymbol  ] };
+    key <AD07> { [ Cyrillic_ghe,     Cyrillic_GHE,     VoidSymbol,      VoidSymbol  ] };
+    key <AD08> { [ Cyrillic_sha,     Cyrillic_SHA,     VoidSymbol,      VoidSymbol  ] };
+    key <AD09> { [ Cyrillic_shcha,   Cyrillic_SHCHA,   VoidSymbol,      VoidSymbol  ] };
+    key <AD10> { [ Cyrillic_ze,      Cyrillic_ZE,      VoidSymbol,      VoidSymbol  ] };
+    key <AD11> { [ Cyrillic_ha,      Cyrillic_HA,      bracketleft,     braceleft   ] };
+    key <AD12> { [ Cyrillic_hardsign,Cyrillic_HARDSIGN,bracketright,    braceright  ] };
+    key <BKSL> { [ backslash,        slash,            bar,             VoidSymbol  ] };
+
+    key <AC01> { [ Cyrillic_ef,      VoidSymbol,       Cyrillic_EF,     VoidSymbol  ] };
+    key <AC02> { [ Cyrillic_yeru,    VoidSymbol,       Cyrillic_YERU,   VoidSymbol  ] };
+    key <AC03> { [ Cyrillic_ve,      VoidSymbol,       Cyrillic_VE,     VoidSymbol  ] };
+    key <AC04> { [ Cyrillic_a,       VoidSymbol,       Cyrillic_A,      VoidSymbol  ] };
+    key <AC05> { [ Cyrillic_pe,      VoidSymbol,       Cyrillic_PE,     VoidSymbol  ] };
+    key <AC06> { [ Cyrillic_er,      Cyrillic_ER,      VoidSymbol,      VoidSymbol  ] };
+    key <AC07> { [ Cyrillic_o,       Cyrillic_O,       VoidSymbol,      VoidSymbol  ] };
+    key <AC08> { [ Cyrillic_el,      Cyrillic_EL,      VoidSymbol,      VoidSymbol  ] };
+    key <AC09> { [ Cyrillic_de,      Cyrillic_DE,      VoidSymbol,      VoidSymbol  ] };
+    key <AC10> { [ Cyrillic_zhe,     Cyrillic_ZHE,     semicolon,       colon       ] };
+    key <AC11> { [ Cyrillic_e,       Cyrillic_E,       apostrophe,      quotedbl    ] };
+
+    key <AB01> { [ Cyrillic_ya,      VoidSymbol,       Cyrillic_YA,     VoidSymbol  ] };
+    key <AB02> { [ Cyrillic_che,     VoidSymbol,       Cyrillic_CHE,    VoidSymbol  ] };
+    key <AB03> { [ Cyrillic_es,      VoidSymbol,       Cyrillic_ES,     VoidSymbol  ] };
+    key <AB04> { [ Cyrillic_em,      VoidSymbol,       Cyrillic_EM,     VoidSymbol  ] };
+    key <AB05> { [ Cyrillic_i,       VoidSymbol,       Cyrillic_I,      VoidSymbol  ] };
+    key <AB06> { [ Cyrillic_te,      Cyrillic_TE,      VoidSymbol,      VoidSymbol  ] };
+    key <AB07> { [ Cyrillic_softsign,Cyrillic_SOFTSIGN,VoidSymbol,      VoidSymbol  ] };
+    key <AB08> { [ Cyrillic_be,      Cyrillic_BE,      comma,           less        ] };
+    key <AB09> { [ Cyrillic_yu,      Cyrillic_YU,      period,          greater     ] };
+    key <AB10> { [ period,           comma,            slash,           question    ] };
+};
