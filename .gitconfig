@@ -1,0 +1,19 @@
+[user]
+	email = wenirr@gmail.com
+	name = Wenir
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+[github]
+	user = wenir
+[merge]
+	tool = nvimdiff
+[mergetool]
+    prompt = true
+[diff]
+    tool = nvimdiff
+[difftool]
+    prompt = false
+[difftool "nvimdiff"]
+    cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
+[mergetool "nvimdiff"]
+    cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\" \"$MERGED\""
