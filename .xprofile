@@ -1,0 +1,5 @@
+export STEAM_FRAME_FORCE_CLOSE=1
+export STEAM_RUNTIME=0
+export VDPAU_DRIVER=va_gl
+export WINEDLLOVERRIDES="winemenubuilder.exe=d"
+

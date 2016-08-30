@@ -1,0 +1,76 @@
+
+##
+## Conky
+## System monitor
+##
+
+Style "conky (wenir)" NoTitle, !Handles, !Borders, Sticky, WindowListSkip, \
+    CirculateSkip, StaysOnBottom, FixedPosition, FixedSize, !Iconifiable
+
+##
+## Guake
+## Quake-like terminal emulator
+##
+
+Style "Guake!" NoTitle, !Handles, !Borders, Sticky, WindowListSkip, \
+    CirculateSkip, FixedPosition, FixedSize, !Iconifiable
+
+##
+## Stalonetray
+## stand-alone system tray (notification area)
+##
+
+#Style "stalonetray" NoTitle, !Handles, !Borders, Sticky, WindowListSkip, \
+#    CirculateSkip, FixedPosition, FixedSize, !Iconifiable
+
+##
+## Gmrun
+## A lightweight run promt program
+##
+
+Style "Execute program feat. completion" Notitle, !Handles, !Borders, \
+    WindowListSkip, CirculateSkip, StaysOnTop, FixedPosition, FixedSize, \
+    !Iconifiable
+
+##
+## Chromium web browser
+##
+
+Style "chromium" NoTitle
+
+##
+## FvwmTaskBar
+##
+
+Style "FvwmTaskBar" NoTitle, !Handles, !Borders, Sticky, WindowListSkip, \
+    CirculateSkip, StaysOnTop, FixedPosition, FixedSize, !Iconifiable
+
+##
+## FvwmBar
+##
+
+Style "FvwmBar" NoTitle, !Handles, !Borders, Sticky, WindowListSkip, \
+    CirculateSkip, StaysOntop, FixedPosition, FixedSize, !Iconifiable
+
+## 
+## FvwmPager
+##
+
+Style "FvwmPager*" !Title, !Borders, StaysOnTop, Sticky
+Style "FvwmPanel" !Title, !Borders, StaysOnTop, Sticky
+
+##
+## Some functions
+##
+
+SetEnv StaysState top
+DestroyFunc TogleState
+AddToFunc TogleState
+	+ C Test   (EnvMatch StaysState top)    Style        FvwmBar !StaysOnTop, StaysOnBottom
+	+ C Test   (EnvMatch StaysState top)    SendToModule FvwmBar ChangeButton "FvwmPanelButton" Title "fvwm"
+	+ C Test   (EnvMatch StaysState bottom) Style        FvwmBar !StaysOnBottom, StaysOnTop
+	+ C Test   (EnvMatch StaysState bottom) SendToModule FvwmBar ChangeButton "FvwmPanelButton" Title "FVWM"
+
+	+ C Test   (EnvMatch StaysState bottom) SetEnv       StaysState top
+	+ C TestRc (NoMatch)                    SetEnv       StaysState bottom
+

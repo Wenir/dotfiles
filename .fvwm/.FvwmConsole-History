@@ -1,0 +1,100 @@
+addtofunc IconMansLeftMouse I flipfocus
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I Shedule 10 next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+addtofunc IconMansLeftMouse I Schedule 10 next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I Schedule 10 next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I Schedule 1000 next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+addtofunc IconMansLeftMouse I updatestyles
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+addtofunc IconMansLeftMouse I Schedule 1000 updatestyles
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+addtofunc IconMansLeftMouse I Schedule 1000 refresh
+estroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+ddtofunc IconMansLeftMouse I next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+addtofunc IconMansLeftMouse I next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+addtofunc temp1 I next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I schedule 1000 temp1
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I schedule 100 temp1
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I temp1
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow (!Focused) Focus
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I corsormove +1p +1p
+addtofunc IconMansLeftMouse I cursormove +1p +1p
+addtofunc IconMansLeftMouse I cursormove +10p +10p
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I exec bash -c 'FvwmCommand next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus'
+addtofunc IconMansLeftMouse I exec "bash -c 'FvwmCommand next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus'"
+addtofunc IconMansLeftMouse I exec bash -c FvwmCommand next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+addtofunc IconMansLeftMouse I exec bash -c 'FvwmCommand "next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus"'
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I exec bash -c 'FvwmCommand "next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus"'
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I exec bash -c 'sleep 1s && FvwmCommand "next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus"'
+addtofunc IconMansLeftMouse I exec bash -c 'sleep 0.01s && FvwmCommand "next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus"'
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse I exec bash -c 'sleep 0.01s && FvwmCommand "next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus"'
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+addtofunc IconMansLeftMouse C exec bash -c 'sleep 0.01s && FvwmCommand "next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus"'
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse C thiswindow raiselower
+addtofunc IconMansLeftMouse C exec bash -c 'sleep 0.01s && FvwmCommand "next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus"'
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse C thiswindow raiselower
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I thiswindow raiselower, exec bash -c 'sleep 0.01s && FvwmCommand "next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus"'
+addtofunc IconMansLeftMouse I thiswindow raiselower , exec bash -c 'sleep 0.01s && FvwmCommand "next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus"'
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I Schedule 100 next (Currentpage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) focus
+addtofunc IconMansLeftMouse I thiswindow raiselower
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I Iconify off
+addtofunc IconMansLeftMouse I raiselower
+addtofunc IconMansLeftMouse I thiswindow (focused) Thumbnail
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I Iconify off
+addtofunc IconMansLeftMouse I thiswindow (focused) Thumbnail
+addtofunc IconMansLeftMouse I raiselower
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I Iconify off
+addtofunc IconMansLeftMouse I thiswindow (focused) Thumbnail
+addtofunc IconMansLeftMouse I testrc (nomatch) raiselower
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I Iconify off
+addtofunc IconMansLeftMouse I raiselower
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I raiselower
+destroyfunc IconMansLeftMouse
+addtofunc IconMansLeftMouse I Iconify off
+addtofunc IconMansLeftMouse I raiselower

@@ -1,0 +1,24 @@
+##
+## See INSTALL, README and CUSTOMIZE for more information.
+##
+
+AddToFunc StartFunction
+	## + I Test (Init) Exec stalonetray
+	+ I Test (Init) Exec bash $[mtp_scripts]/effects-start $[mtp_scripts]
+	+ I Test (Init) Exec xautolock -locker slimlock -time 15
+	## + I Test (Init) Exec xload -update 1 -geometry 164x164-0+425
+	+ I Test (Init) Exec parcellite
+	+ I Test (Init) Exec devmon
+	+ I Test (Init) Exec volti
+	+ I Test (Init) Exec conky
+	+ I Test (Init) Exec guake
+	+ I Test (Init) Exec pidgin
+	+ I Test (Init) Exec steam
+	+ I Test (Init) Exec dropbox
+	+ I Test (Init) Exec thunderbird
+	+ I Test (Init) Exec unclutter -noevents
+	+ I Test (Init) Exec (sleep 5s && gmpc -h)
+	+ I Test (Init) Exec ~/.keyboard.sh
+    + I Test (Init) Exec cbatticon
+    + I Test (Init) Exec xrdb ~/.Xresources
+

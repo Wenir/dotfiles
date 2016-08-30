@@ -1,0 +1,8 @@
+altscreen on
+term screen-256color
+hardstatus off
+hardstatus alwayslastline
+hardstatus string '%{= KG}[ %{g}%H %{d}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
+startup_message off
+termcapinfo xterm* ti@:te@
+

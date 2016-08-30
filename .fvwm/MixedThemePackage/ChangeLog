@@ -1,0 +1,91 @@
+2013-01-02 Mixed Theme Package for FVWM v0.8
+
+	* Added missed tmp directory.
+
+
+2012-12-27 Mixed Theme Package for FVWM v0.7
+
+	* Added compton support.
+
+	* Added screen locking support.
+
+	* Updated key bindings.
+
+	* Configuration clean up.
+
+
+2011-12-29 Mixed Theme Package for FVWM v0.6
+
+	* Added air1 theme.
+
+	* Added air2 theme.
+
+	* Added blue stripes theme.
+
+	* Added cable theme.
+
+	* Added elegant stripes theme.
+
+	* Added wheat theme.
+
+	* Added FvwmRearrange.
+
+	* Updated for FVWM 2.6.
+
+	* Updated key bindings.
+
+	* Updated mouse bindings.
+
+	* Updated green stripes theme for 1920x1200.
+
+	* Updated grey stripes theme for 1920x1200.
+
+	* Updated pink theme for 1920x1200.
+
+	* Updated waitingroom theme for 1920x1200.
+
+	* Configuration clean up.
+
+
+2008-12-27 Mixed Theme Package for FVWM v0.5
+
+	* Added some suggestions from Thomas Adam.
+
+
+2008-04-15 Mixed Theme Package for FVWM v0.4
+
+	* Added green stripes theme.
+
+	* Added grey stripes theme.
+
+	* Added pink theme.
+
+	* Added deer theme.
+
+	* Added waiting room theme.
+
+	* Configuration clean up.
+
+
+2007-09-15 Mixed Theme Package for FVWM v0.3
+
+	* Added meadow theme.
+
+	* Added xcompmgr support.
+
+	* Added date to clock script.
+
+
+2006-06-24 Mixed Theme Package for FVWM v0.2
+
+	* Added green theme.
+
+	* Added clock script.
+
+	* Removed icon box.
+
+
+2005-03-30 Mixed Theme Package for FVWM v0.1
+
+	* First public release.
+

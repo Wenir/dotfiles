@@ -1,0 +1,7 @@
+##
+## See INSTALL, README and CUSTOMIZE for more information.
+##
+
+AddToFunc WindowPlacementHandler
+	+ I ThisWindow ("*Chromium") MoveToPage 1 0
+    + I ThisWindow ("qvim") Move 0 0

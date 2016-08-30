@@ -1,0 +1,11 @@
+#!/bin/bash
+
+scripts="$1"
+if [ "$scripts" == "" ]
+then
+	exit 1
+fi
+
+source "$scripts/effects"
+bash "$scripts/$stop" "$scripts"
+

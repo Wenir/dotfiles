@@ -1,0 +1,54 @@
+
+
+/------------------------------------------------------------------------------------------\
+BigWorld WorldOfTanks 2.8.0 (compiled at 11:31:15 Apr 11 2016) starting on 07/11/16 17:31:22
+
+INFO: [Config] Command line: C:/Games/World_of_Tanks/WorldOfTanks.exe
+INFO: [Config] Default encoding set to utf-8
+INFO: [PY_DEBUG] BigWorld Release Client - Content Type: sd
+
+INFO: WARNING: WWISE support IS enabled.
+INFO: ResMgr.DataSection at 0x240147C0
+WARNING: [WARNING] (scripts/client/gui/login/Preferences.py, 65): Ignoring login info from preferences.xml
+NOTICE: [NOTE] (scripts/client/post_processing/__init__.py, 269): The quality = 2 was selected.
+NOTICE: [NOTE] (scripts/client/post_processing/__init__.py, 269): The quality = 3 was selected.
+NOTICE: [NOTE] (scripts/client/ConnectionManager.py, 210): User authentication method: basic
+NOTICE: [NOTE] (scripts/client/ConnectionManager.py, 210): User authentication method: basic
+NOTICE: [NOTE] (scripts/client/ConnectionManager.py, 210): User authentication method: basic
+NOTICE: [NOTE] (scripts/client/account_helpers/settings_core/options.py, 723): Change state of voip: (True,)
+NOTICE: [NOTE] (scripts/client/game.py, 449): [SPACE] Loading space: spaces/h14_FEvent_2016
+ERROR: Traceback (most recent call last):
+ERROR:   File "scripts/client/gui/shared/utils/scheduled_notifications.py", line 78, in _onNotification
+ERROR:   File "scripts/client/gui/shared/utils/scheduled_notifications.py", line 81, in __processNotification
+ERROR: TypeError: 'NoneType' object is not callable
+NOTICE: [NOTE] (scripts/client/post_processing/__init__.py, 269): The quality = 4 was selected.
+INFO: PostProcessing.Phases.fini()
+
+\------------------------------------------------------------------------------------------/
+
+
+
+/------------------------------------------------------------------------------------------\
+BigWorld WorldOfTanks 2.8.0 (compiled at 11:31:15 Apr 11 2016) starting on 07/11/16 17:36:44
+
+INFO: [Config] Command line: C:/Games/World_of_Tanks/WorldOfTanks.exe -wot_wait_for_mutex
+INFO: [Config] Default encoding set to utf-8
+INFO: [PY_DEBUG] BigWorld Release Client - Content Type: sd
+
+INFO: WARNING: WWISE support IS enabled.
+INFO: ResMgr.DataSection at 0x1A00B8A0
+NOTICE: [NOTE] (scripts/client/post_processing/__init__.py, 269): The quality = 4 was selected.
+NOTICE: [NOTE] (scripts/client/post_processing/__init__.py, 269): The quality = 3 was selected.
+NOTICE: [NOTE] (scripts/client/ConnectionManager.py, 210): User authentication method: basic
+NOTICE: [NOTE] (scripts/client/account_helpers/settings_core/options.py, 723): Change state of voip: (True,)
+NOTICE: [NOTE] (scripts/client/game.py, 449): [SPACE] Loading space: spaces/h14_FEvent_2016
+WARNING: [WARNING] (scripts/client/account_helpers/CustomFilesCache.py, 36): Method "__run_read" takes too much time 0.614000082016
+WARNING: [WARNING] (scripts/client/account_helpers/CustomFilesCache.py, 36): Method "__run_read" takes too much time 0.111999988556
+ERROR: Traceback (most recent call last):
+ERROR:   File "scripts/client/gui/shared/utils/scheduled_notifications.py", line 78, in _onNotification
+ERROR:   File "scripts/client/gui/shared/utils/scheduled_notifications.py", line 81, in __processNotification
+ERROR: TypeError: 'NoneType' object is not callable
+INFO: PostProcessing.Phases.fini()
+
+\------------------------------------------------------------------------------------------/
+

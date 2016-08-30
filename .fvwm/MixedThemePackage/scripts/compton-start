@@ -1,0 +1,23 @@
+#!/bin/bash
+
+ps ax | grep -q '[c]ompton[^-]'
+if [ "$?" == "0" ]
+then
+	# compton is already running.
+	exit 0
+fi
+
+scripts="$1"
+if [ "$scripts" == "" ]
+then
+	exit 1
+fi
+
+enabled="$scripts/EFFECTS_ARE_ENABLED"
+if [ ! -f "$enabled" ]
+then
+	exit 0
+fi
+
+# compton -G -c -C -r7 -l-10 -t-10 -o.75 &
+

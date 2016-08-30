@@ -1,0 +1,6 @@
+##
+## See INSTALL, README and CUSTOMIZE for more information.
+##
+
+Style "Double Commander*" StartsOnPage 0 1 1
+Style "Pidgin" SkipMapping, StartsOnPage 0 0 1

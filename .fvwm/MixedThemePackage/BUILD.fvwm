@@ -1,0 +1,110 @@
+FVWM 2.6.5
+
+	$ umask 0022
+	$ wget ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-2.6.5.tar.bz2
+	$ tar -jxvf fvwm-2.6.5.tar.bz2
+	$ cd fvwm-2.6.5
+	$ patch -p1 < ../fvwm-2.6-menu-separator-line.diff
+	$ ./configure --prefix=/opt/fvwm-2.6.5 --disable-nls --enable-htmldoc
+	$ make
+	$ make install
+	$ ln -s /opt/fvwm-2.6.5 /opt/fvwm
+
+	Finally, add /opt/fvwm/bin to your PATH.
+
+	FVWM 2.6.5 is used by:
+
+	* Fedora 19
+	* Fedora 18
+	* Fedora 17
+	* Slackware 14.0
+	* Ubuntu 13.04
+
+
+FVWM 2.6.3
+
+	$ umask 0022
+	$ wget ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-2.6.3.tar.bz2
+	$ tar -jxvf fvwm-2.6.3.tar.bz2
+	$ cd fvwm-2.6.3
+	$ patch -p1 < ../fvwm-2.6-menu-separator-line.diff
+	$ ./configure --prefix=/opt/fvwm-2.6.3 --disable-nls --enable-htmldoc
+	$ make
+	$ make install
+	$ ln -s /opt/fvwm-2.6.3 /opt/fvwm
+
+	Finally, add /opt/fvwm/bin to your PATH.
+
+	FVWM 2.6.3 is used by:
+
+	* openSUSE 12.3
+	* openSUSE 12.2
+
+
+FVWM 2.5.30
+
+	$ umask 0022
+	$ wget ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-2.5.30.tar.bz2
+	$ tar -jxvf fvwm-2.5.30.tar.bz2
+	$ cd fvwm-2.5.30
+	$ patch -p1 < ../fvwm-2.5-menu-separator-line.diff
+	$ ./configure --prefix=/opt/fvwm-2.5.30 --disable-nls --enable-htmldoc
+	$ make
+	$ make install
+	$ ln -s /opt/fvwm-2.5.30 /opt/fvwm
+
+	Finally, add /opt/fvwm/bin to your PATH.
+
+	FVWM 2.5.30 is used by:
+
+	* Debian 7.0
+	* Debian 6.0
+	* Fedora 16
+	* Fedora 15
+	* Ubuntu 12.10
+	* Ubuntu 12.04 LTS
+	* Ubuntu 11.10
+
+
+FVWM 2.5.28
+
+	$ umask 0022
+	$ wget ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-2.5.28.tar.bz2
+	$ tar -jxvf fvwm-2.5.28.tar.bz2
+	$ cd fvwm-2.5.28
+	$ patch -p1 < ../fvwm-2.5-menu-separator-line.diff
+	$ ./configure --prefix=/opt/fvwm-2.5.28 --disable-nls --enable-htmldoc
+	$ make
+	$ make install
+	$ ln -s /opt/fvwm-2.5.28 /opt/fvwm
+
+	Finally, add /opt/fvwm/bin to your PATH.
+
+	FVWM 2.5.28 is used by:
+
+	* Ubuntu 10.04 LTS
+
+
+FVWM 2.5.26
+
+	$ umask 0022
+	$ wget ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-2.5.26.tar.bz2
+	$ tar -jxvf fvwm-2.5.26.tar.bz2
+	$ cd fvwm-2.5.26
+	$ patch -p1 < ../fvwm-2.5-menu-separator-line.diff
+	$ ./configure --prefix=/opt/fvwm-2.5.26 --disable-nls --enable-htmldoc
+	$ make
+	$ make install
+	$ ln -s /opt/fvwm-2.5.26 /opt/fvwm
+
+	Finally, add /opt/fvwm/bin to your PATH.
+
+	FVWM 2.5.26 is used by:
+
+	* Debian 5.0
+	* Fedora 12
+	* Fedora 13
+	* Fedora 14
+	* openSUSE 11.4
+	* openSUSE 12.1
+

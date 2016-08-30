@@ -1,0 +1,56 @@
+1. Get the Mixed Theme Package from:
+
+    http://www.vakuumverpackt.de/fvwm/
+
+
+2. Make a backup of your current .fvwm2rc configuration file:
+
+    $ cd
+    $ mv -i .fvwm2rc .fvwm2rc-backup
+
+
+3. Extract the package into the .fvwm directory:
+
+    $ bash --version
+    GNU bash, version 4.2.25(1)-release (x86_64-pc-linux-gnu)
+
+    $ wget --version
+    GNU Wget 1.14.31-3be7 built on linux-gnu.
+
+    $ cd
+    $ mkdir .fvwm
+    $ cd .fvwm
+    $ wget http://www.vakuumverpackt.de/fvwm/MixedThemePackage-0.8.tar.gz
+    $ tar -zxvf MixedThemePackage-0.8.tar.gz
+    $ ln -s -f MixedThemePackage-0.8 MixedThemePackage
+
+
+4. Convert the wallpapers to PNG:
+
+    $ convert --version
+    Version: ImageMagick 6.6.9-7 2012-08-17 Q16 http://www.imagemagick.org
+
+    $ cd ~/.fvwm/MixedThemePackage/themes
+    $ find * -name 'wallpaper*.jpg' -print -exec convert -set filename:name "%d/%t" {} %[filename:name].png \;
+
+
+5. Select a theme.
+
+    Create a link to .fvwm2rc:
+
+        $ ln -s ~/.fvwm/MixedThemePackage/.fvwm2rc ~/.fvwm2rc
+
+    Select a theme in .fvwm2rc:
+
+        $ vim ~/.fvwm2rc
+        $ cat ~/.fvwm2rc
+        Read MixedThemePackage/themes/wheat/wheat-1920x1200.fvwm
+
+
+6. Start X and FVWM:
+
+    $ startx
+
+
+7. Enjoy! :-)
+

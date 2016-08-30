@@ -1,0 +1,17 @@
+#!/bin/bash
+
+scripts="$1"
+if [ "$scripts" == "" ]
+then
+	exit 1
+fi
+
+enabled="$scripts/EFFECTS_ARE_ENABLED"
+if [ -f "$enabled" ]
+then
+	rm "$enabled"
+fi
+
+source "$scripts/effects"
+bash "$scripts/$stop" "$scripts"
+

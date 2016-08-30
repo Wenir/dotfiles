@@ -1,0 +1,21 @@
+##
+## See INSTALL, README and CUSTOMIZE for more information.
+##
+
+DestroyMenu MenuApplication
+AddToMenu MenuApplication
+    + "&Console" Terminal
+    + "&Vim" Exec urxvt -geometry 169x48+0+0 -e nvim
+    + "K&dbg" Exec kdbg
+    + "&Browser" Exec chromium
+    + "&File Browser" Exec doublecmd
+	+ "&Media" Popup MenuMedia
+	+ "Fv&wmConsole" Module FvwmConsole -terminal urxvt
+
+DestroyMenu MenuMedia
+AddToMenu MenuMedia
+	+ "&gimp" Exec gimp
+	+ "&blender" Exec blender
+	+ "&mplayer" Exec smplayer
+	+ "&inkscape" Exec inkscape
+

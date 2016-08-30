@@ -1,0 +1,113 @@
+conky.config = {
+    alignment = 'top_right',
+    background = false,
+    border_width = 0,
+    cpu_avg_samples = 2,
+    draw_graph_borders = false,
+    use_xft = true,
+    font = 'Ubuntu Mono derivative Powerline:size=15',
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    own_window_hints = 'sticky,skip_pager,skip_taskbar,undecorated,below',
+    own_window_argb_visual = true,
+    own_window_colour = '141516',
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false,
+    total_run_times = 0,
+    double_buffer = true,
+    minimum_width = 280, minimum_height = 5,
+    draw_shades = false,
+    draw_outline = false,
+    draw_borders = false,
+    stippled_borders = 8,
+    border_width = 1,
+    default_color = '000000', -- 'ffffff', --'#d9dadb',
+    default_shade_color = 'black',
+    default_outline_color = 'black',
+    gap_x = 12,
+    gap_y = 12,
+    override_utf8_locale = false,
+    max_user_text = 25000,
+    color1 = '000000', -- '000000', --'a0a0a0',
+    color1 = '000000', -- '000000' --'d9dadb',
+};
+preset = 'white';
+if preset == 'black'
+then
+    conky.config['color1'] = '000000';
+    conky.config['default_color'] = '000000';
+    conky.config['own_window_argb_visual'] = true;
+    conky.config['own_window_colour'] = '141516'; -- 'C2C2EA', -- '2E3237',
+end;
+if preset == 'white'
+then
+    conky.config['color1'] = 'ffffff';
+    conky.config['default_color'] = 'ffffff';
+    conky.config['own_window_argb_visual'] = false;
+    conky.config['own_window_colour'] = '2E3237';
+end;
+
+conky.text = [[
+${color}$nodename $alignr $sysname $kernel $machine
+
+${color1}Time:$color ${time %d/%m/%Y}       ${time %H:%M}${alignr 1}${color1}Uptime:$color $uptime
+$alignc${color1}Jakarta:$color ${tztime Asia/Jakarta %H:%M}  ${color1}Amsterdam:$color ${tztime Europe/Amsterdam %H:%M}  ${color1}Washington:$color ${tztime US/Eastern %H:%M}
+${hr 1}
+${color1}Battery:$color     ${battery_percent BAT1}% ${alignr 10} ${battery_bar 6,170 BAT1}
+${color1}RAM Usage:$color   $mem ${alignr 10} ${membar 6,170}
+${color1}Swap Usage:$color  $swap ${alignr 10} ${swapbar 6,170}
+${color1}CPU Usage:$color   $cpu% (${freq cpu0} MHz) ${alignr 10} ${cpubar cpu0 6,170}
+${color1}Processes:$color   $running_processes${color1}/$color$processes$alignr${color1}Threads:$color $running_threads${color1}/$color$threads
+${color1}Packages:$color    ${alignr 10}${execpi 3600 checkupdates | wc -l}
+${hr 1}
+
+${color1}CPU 1: $color   ${cpu cpu1}% ${alignr 10} ${cpugraph cpu1 22,320 color1 color1 -l}
+${color1}CPU 2: $color   ${cpu cpu2}% ${alignr 10} ${cpugraph cpu2 22,320 color1 color1 -l}
+${color1}CPU 3: $color   ${cpu cpu3}% ${alignr 10} ${cpugraph cpu3 22,320 color1 color1 -l}
+${color1}CPU 4: $color   ${cpu cpu4}% ${alignr 10} ${cpugraph cpu4 22,320 color1 color1 -l}
+${color1}RAM: $color     ${memperc}%  ${alignr 10} ${memgraph      22,320 color1 color1 -l}
+${color1}Disk IO: $color ${diskio /dev/sda} ${alignr 10} ${diskiograph /dev/sda 22,320 color1 color1 -l}
+${hr 1}
+
+${color1}/              ${fs_used /}/${fs_size /} $color${alignr 10}${fs_bar 6,202 /}
+${color1}/disks/Files/   ${fs_used /disks/Files}/${fs_size /disks/Files} $color${alignr 10}${fs_bar 6,202 /disks/Files}
+${hr 1}
+
+${scroll 30 4 ${mpd_title}} ${alignr 1}${mpd_percent}% ${mpd_bitrate}
+
+${hr 1}
+
+${if_existing /sys/class/net/wlp3s0/operstate up}${color1}W: Down:${color1} ${downspeedf wlp3s0} k/s (${tcp_portmon 32768 61000 count})
+${color1}${downspeedgraph wlp3s0 104,511 color1 color1 -l}
+${color1}Up:${color1} ${upspeedf wlp3s0} k/s (${tcp_portmon 1 32767 count})
+${color1}${upspeedgraph   wlp3s0 104,511 color1 color1 -l}
+${hr 1}${endif}
+]];
+
+-- ${color1}Weather:$color ${alignr 10}${execi 300 /home/wenir/bin/weather.sh 323903}
+-- d9dadb
+-- $color${top name 1}$alignr ${top pid 1} ${top cpu 1} ${top mem 1}
+-- $color${top name 2}$alignr ${top pid 2} ${top cpu 2} ${top mem 2}
+-- $color${top name 3}$alignr ${top pid 3} ${top cpu 3} ${top mem 3}
+-- $color${top name 4}$alignr ${top pid 4} ${top cpu 4} ${top mem 4}
+-- $color${top name 5}$alignr ${top pid 5} ${top cpu 4} ${top mem 5}
+--
+-- $color${top_mem name 1}$alignr ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
+-- $color${top_mem name 2}$alignr ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+-- $color${top_mem name 3}$alignr ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+-- $color${top_mem name 4}$alignr ${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}
+-- $color${top_mem name 5}$alignr ${top_mem pid 5} ${top_mem cpu 5} ${top_mem mem 5}
+--
+-- ${if_existing /sys/class/net/en0/operstate up}${color1}E: Down:${color2} ${downspeedf en0} k/s (${tcp_portmon 32768 61000 count}) $alignr${color1}Up:${color2} ${upspeedf en0} k/s (${tcp_portmon 1 32767 count})
+-- ${color #000000} ${downspeedgraph en0 52,150 000000 d9dadb -l}${alignr 10}${color #000000}${upspeedgraph en0 52,150 000000 d9dadb -l}${endif}

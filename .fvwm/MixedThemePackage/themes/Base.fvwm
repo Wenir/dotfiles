@@ -1,0 +1,543 @@
+##
+## See INSTALL, README and CUSTOMIZE for more information.
+##
+
+##
+## SetEnv
+##
+
+SetEnv mtp_home $[HOME]/.fvwm/MixedThemePackage
+SetEnv mtp_tmp $[mtp_home]/tmp
+SetEnv mtp_themes $[mtp_home]/themes
+SetEnv mtp_images $[mtp_home]/images
+SetEnv mtp_scripts $[mtp_home]/scripts
+SetEnv mtp_customize $[mtp_home]/customize
+
+SetEnv theme_name $[theme_name]
+SetEnv theme_home $[mtp_themes]/$[theme_name]
+SetEnv theme_images $[theme_home]/images
+
+
+
+##
+## Reset all built-in key and mouse bindings
+##
+## See the "BUILTIN KEY AND MOUSE BINDINGS" section of FVWM(1)
+##
+
+Key Help R A -
+Key F1 R A -
+Key Tab A M -
+Key Escape A MC -
+
+Mouse 1 R A -
+Mouse 1 T A -
+Mouse 1 FS A -
+Mouse 2 FST A -
+
+DestroyFunc FuncFvwmRaiseLowerX
+
+DefaultLayers 2 4 6
+
+##
+## Focus stealing (http://fvwmforums.org/wiki/Tips/FocusStealing/)
+##
+
+DestroyFunc EWMHActivateWindowFunc
+AddToFunc EWMHActivateWindowFunc
+	+ I Nop
+
+DestroyFunc UrgencyFunc
+AddToFunc UrgencyFunc
+	+ I Nop
+
+
+
+##
+##
+##
+
+ClickTime 50
+DeskTopSize 2x2
+EdgeResistance 150
+EdgeScroll 100 100
+EdgeThickness 0
+MoveThreshold 6
+OpaqueMoveSize unlimited
+HideGeometryWindow
+
+
+##
+## Wallpaper
+##
+
+DestroyFunc StartFunction
+
+Test (!EnvIsSet theme_wallpaper) AddToFunc StartFunction
+	+ I PipeRead 'fvwm-root --retain-pixmap $[theme_images]/wallpaper.png'
+
+Test (EnvIsSet theme_wallpaper) AddToFunc StartFunction
+	+ I PipeRead 'fvwm-root --retain-pixmap $[theme_images]/$[theme_wallpaper]'
+
+
+
+##
+## StartFunction
+##
+
+Read $[mtp_customize]/StartFunction.fvwm
+
+
+
+##
+## Fonts
+##
+
+Read $[mtp_customize]/Fonts.fvwm
+DefaultFont "xft:$[mtp_font]:size=$[mtp_font_size]"
+
+# Title font
+Test (!EnvIsSet theme_title_font) Style * Font "xft:$[mtp_font_title]:size=$[mtp_font_title_size]"
+Test (EnvIsSet theme_title_font) Style * Font "xft:$[theme_title_font]:size=$[theme_title_font_size]"
+
+# Menu font
+Test (!EnvIsSet theme_menu_font) MenuStyle * Font "xft:$[mtp_font_menu]:size=$[mtp_font_menu_size]"
+Test (EnvIsSet theme_menu_font) MenuStyle * Font "xft:$[theme_menu_font]:size=$[theme_menu_font_size]"
+
+
+
+##
+## Focus policy
+##
+
+Style * ClickToFocus
+
+
+##
+## Style
+##
+
+Style * IconBox 1000x644+40+40, IconGrid 15 15, IconFill top left, !IconTitle, IconBackgroundRelief 0
+Style * ResizeOpaque, HandleWidth 5, ClickToFocusRaises, DecorateTransient
+Style * SnapAttraction 10 All Screen
+
+# Window title and Icons
+Style * Colorset 10, HilightColorset 11
+
+CursorStyle Wait watch
+
+Read $[mtp_customize]/Style.fvwm
+
+
+##
+## Decoration
+##
+
+## Delete borders
+Style * !Borders
+## Style * !Handles
+
+
+BorderStyle -- Flat
+BorderStyle Active Colorset 7 -- Flat
+BorderStyle Inactive Colorset 7 -- Flat
+
+TitleStyle Height 16
+Style * ForeColor grey, HilightFore white
+Test (!EnvIsSet theme_title_colorset_active) TitleStyle Active Colorset 7 -- Flat
+Test (!EnvIsSet theme_title_colorset_inactive) TitleStyle Inactive Colorset 7 -- Flat
+Test (EnvIsSet theme_title_colorset_active) TitleStyle Active Colorset $[theme_title_colorset_active] -- Flat
+Test (EnvIsSet theme_title_colorset_inactive) TitleStyle Inactive Colorset $[theme_title_colorset_inactive] -- Flat
+
+ButtonStyle Reset
+ButtonStyle All -- Flat
+ButtonStyle All -- UseTitleStyle
+
+AddButtonStyle All Vector 2 1x1@4 1x1@4
+
+AddButtonStyle 1 \
+	ActiveUp (Pixmap $[theme_images]/close.png -- Flat) \
+	ActiveDown (Pixmap $[theme_images]/close.png -- Flat) \
+	Inactive (Pixmap $[theme_images]/close.png -- Flat)
+
+AddButtonStyle 2 \
+	ActiveUp (Pixmap $[theme_images]/maximize.png -- Flat) \
+	ActiveDown (Pixmap $[theme_images]/maximize.png -- Flat) \
+	Inactive (Pixmap $[theme_images]/maximize.png -- Flat)
+
+AddButtonStyle 4 \
+	ActiveUp (Pixmap $[theme_images]/iconify.png -- Flat) \
+	ActiveDown (Pixmap $[theme_images]/iconify.png -- Flat) \
+	Inactive (Pixmap $[theme_images]/iconify.png -- Flat)
+
+AddButtonStyle 6 \
+	ActiveUp (Pixmap $[theme_images]/options.png -- Flat) \
+	ActiveDown (Pixmap $[theme_images]/options.png -- Flat) \
+	Inactive (Pixmap $[theme_images]/options.png -- Flat)
+
+
+##
+## TaskBar
+##
+
+## Leave free space
+EwmhBaseStruts 0 0 0 24
+
+DestroyFunc IconMansLeftMouse
+AddToFunc IconMansLeftMouse
+    + I Iconify off
+    + I RaiseLower
+#    + I FlipFocus
+#    + I UpdateStyles
+
+DestroyModuleConfig FvwmIconMans: *
+*FvwmIconMans: Font "xft:Sans:pixelsize=12:minispace=True:antialias=True"
+*FvwmIconMans: ManagerGeometry           1x1
+*FvwmIconMans: Background                black
+*FvwmIconMans: Foreground                black
+*FvwmIconMans: ButtonGeometry            31x23
+*FvwmIconMans: FocusButton          down white black
+*FvwmIconMans: FocusAndSelectButton down white black
+*FvwmIconMans: IconButton           down grey  black
+*FvwmIconMans: IconAndSelectButton  down white black
+*FvwmIconMans: PlainButton          up   grey black
+*FvwmIconMans: SelectButton         down white black
+*FvwmIconMans: Action Mouse 0 N sendcommand Nop
+*FvwmIconMans: Action Mouse 2 N sendcommand Thumbnail
+## *FvwmIconMans: Action Mouse 1 N sendcommand "Iconify off", sendcommand RaiseLower, sendcommand FlipFocus, UpdateStyles
+*FvwmIconMans: Action Mouse 1 N sendcommand IconMansLeftMouse
+*FvwmIconMans: Action Mouse 3 N sendcommand "Popup FvwmMenuWindowOps Rectangle +$left+$top 0 -50m"
+*FvwmIconMans: Resolution    Screen
+*FvwmIconMans: DrawIcons     Always
+*FvwmIconMans: FollowFocus   True
+*FvwmIconMans: UseWinList    True
+*FvwmIconMans: ShowOnlyIcons False
+*FvwmIconMans: Format        "%t"
+*FvwmIconMans: Sort id
+*FvwmIconMans: DontShow icon=Untitled resource=Untitled title=FvwmButtonsBottom title=xbuffy title=xloadtime title=xlassie title="Desk 0" title=ncmpc title=FvwmBar
+*FvwmIconMans: MaxButtonWidth 200
+*FvwmIconMans: ReliefThickness 0
+
+DestroyModuleConfig FvwmBar: *
+*FvwmBar: Font    "xft:Sans:pixelsize=12:minispace=True:antialias=True"
+*FvwmBar: Back    black
+*FvwmBar: Fore    white
+*FvwmBar: Frame   0
+*FvwmBar: Padding 0 0
+*FvwmBar: Rows    1
+*FvwmBar: (4x1, Title "FVWM", Frame 0, Id FvwmPanelButton, \
+    Panel(Steps 0, Position Root -13 -4) "FvwmPanel" "Module FvwmButtons FvwmPanel -g 1000x175-3000-3000", \
+    Action (Mouse 3) Menu MenuMain Nop, \
+    Action (Mouse 4) PrevPage, \
+    Action (Mouse 5) NextPage)
+*FvwmBar: (3x1, Swallow "FvwmPagerInTaskBar" "Module FvwmPager FvwmPagerInTaskBar * -g 40x24")
+*FvwmBar: (74x1, Swallow "FvwmIconMan" `Module FvwmIconMan FvwmIconMans`)
+*FvwmBar: (18x1, Right, Swallow "stalonetray" `Exec stalonetray`)
+*FvwmBar: (4x1, Right, Frame 0, \
+    Swallow "xclock" `Exec xclock -digital -brief -background black -foreground white -padding 3 -geometry +3000+3000`)
+
+*FvwmPanel: Frame 0
+*FvwmPanel: Padding 0 0
+*FvwmPanel: (1x1, Swallow "FvwmPagerInPanel" "Module FvwmPager FvwmPagerInPanel 0 3 -g -3000-3000")
+
+AddToFunc StartFunction
+    + I Module FvwmButtons FvwmBar -g 1366x24+0-0
+
+DestroyModuleConfig FvwmEventAutoHide: *
+*FvwmEventAutoHide: Cmd Function
+*FvwmEventAutoHide: leave_window FE-LeaveWindow
+
+DestroyFunc FE-LeaveWindow
+AddToFunc FE-LeaveWindow
+    + I ThisWindow ("FvwmPanel") Schedule 250 SendToModule FvwmBar PressButton FvwmPanelButton
+
+
+##
+## FvwmPager
+##
+
+DestroyModuleConfig FvwmPagerInPanel: *
+
+*FvwmPagerInPanel: Title "FvwmPagerInPanel"
+*FvwmPagerInPanel: font none
+*FvwmPagerInPanel: Colorset * 1
+*FvwmPagerInPanel: WindowColorsets 2 3
+
+DestroyModuleConfig FvwmPagerInTaskBar: *
+
+*FvwmPagerInTaskBar: Title "FvwmPagerInTaskBar"
+*FvwmPagerInTaskBar: font none
+*FvwmPagerInTaskBar: Colorset * 1
+*FvwmPagerInTaskBar: WindowColorsets 2 3
+
+
+##
+## FvwmEvent
+##
+
+DestroyModuleConfig FvwmEvent: *
+AddToFunc StartFunction
+	+ I Module FvwmEvent
+    + I Module FvwmEvent FvwmEventAutoHide
+
+
+
+##
+## FvwmCommandS
+##
+
+DestroyModuleConfig FvwmCommandS: *
+AddToFunc StartFunction
+	+ I Module FvwmCommandS
+
+
+
+##
+## FvwmScript
+##
+
+DestroyModuleConfig FvwmScript: *
+AddToFunc StartFunction
+    # + I Module FvwmScript clock.FvwmScript
+
+*FvwmScript: Path $[mtp_scripts]
+
+
+
+##
+## Colorset
+##
+
+Read $[theme_home]/Colorset.fvwm
+
+
+##
+## Thumbnailed window icons (http://www.fvwm.org/documentation/faq/#7.18)
+##
+
+DestroyFunc Thumbnail
+AddToFunc Thumbnail
+	+ I ThisWindow (Shaded) WindowShade
+	+ I PipeRead 'bash $[mtp_scripts]/thumbnail-create "$[w.id]" "$[mtp_tmp]"'
+
+DestroyFunc DeThumbnail
+AddToFunc DeThumbnail
+	+ I PipeRead 'bash $[mtp_scripts]/thumbnail-destroy "$[w.id]" "$[mtp_tmp]"'
+
+*FvwmEvent: deiconify DeThumbnail
+
+
+
+##
+## AutoHide (http://www.fvwm.org/documentation/faq/#7.17)
+##
+
+DestroyFunc AutoHide
+AddToFunc AutoHide
+	+ I ThisWindow ($0) Deschedule $[w.id]
+	+ I ThisWindow ($0) KeepRc ThisWindow (shaded) WindowShade off
+	+ I TestRc (!Match) All ($0, !shaded) AutoHideHide $1 $2
+
+DestroyFunc AutoHideHide
+AddToFunc AutoHideHide
+	+ I Schedule $0 $[w.id] WindowShade $1
+	+ I Schedule $0 $[w.id] Deschedule $[w.id]
+
+DestroyFunc AutoHideEnter
+AddToFunc AutoHideEnter
+
+DestroyFunc AutoHidePlacementHandler
+AddToFunc AutoHidePlacementHandler
+
+Test (!EnvIsSet theme_auto_hide_steps) SetEnv mtp_auto_hide_steps 10
+Test (EnvIsSet theme_auto_hide_steps) SetEnv mtp_auto_hide_steps $[theme_auto_hide_steps]
+
+Read $[mtp_customize]/AutoHide.fvwm
+
+DestroyModuleConfig FvwmAuto: *
+
+AddToFunc StartFunction
+	+ I Module FvwmAuto 0 -menter AutoHideEnter
+
+*FvwmEvent: add_window AutoHidePlacementHandler
+
+
+
+##
+## Window placement
+##
+
+DestroyFunc WindowCenter
+AddToFunc WindowCenter
+	+ I PipeRead 'bash $[mtp_scripts]/window-center $[w.x] $[w.y] $[w.width] $[w.height] $[vp.width] $[vp.height] $[page.nx] $[page.ny]'
+
+DestroyFunc WindowCenterResize
+AddToFunc WindowCenterResize
+	+ I ResizeMove $0 $1 50-50w 50-50w
+	+ I Raise
+
+DestroyFunc WindowSizeIncrease
+AddToFunc WindowSizeIncrease
+	+ I PipeRead 'bash $[mtp_scripts]/window-size-increase $[w.class] $[cw.width] $[cw.height]'
+
+DestroyFunc WindowSizeDecrease
+AddToFunc WindowSizeDecrease
+	+ I PipeRead 'bash $[mtp_scripts]/window-size-decrease $[w.class] $[cw.width] $[cw.height]'
+
+DestroyFunc WindowTopLeft
+AddToFunc WindowTopLeft
+	+ I ResizeMove frame 50 50 0 0
+	+ I Raise
+
+DestroyFunc WindowTopCenter
+AddToFunc WindowTopCenter
+	+ I ResizeMove frame 100 50 0 0
+	+ I Raise
+
+DestroyFunc WindowTopRight
+AddToFunc WindowTopRight
+	+ I ResizeMove frame 50 50 -0 0
+	+ I Raise
+
+DestroyFunc WindowMiddleLeft
+AddToFunc WindowMiddleLeft
+	+ I ResizeMove frame 50 100 0 0
+	+ I Raise
+
+DestroyFunc WindowMiddleCenter
+AddToFunc WindowMiddleCenter
+	+ I Move 50-50w 50-50w
+	+ I Raise
+
+DestroyFunc WindowMiddleRight
+AddToFunc WindowMiddleRight
+	+ I ResizeMove frame 50 100 -0 -0
+	+ I Raise
+
+DestroyFunc WindowBottomLeft
+AddToFunc WindowBottomLeft
+	+ I ResizeMove frame 50 50 0 -0
+	+ I Raise
+
+DestroyFunc WindowBottomCenter
+AddToFunc WindowBottomCenter
+	+ I ResizeMove frame 100 50 -0 -0
+	+ I Raise
+
+DestroyFunc WindowBottomRight
+AddToFunc WindowBottomRight
+	+ I ResizeMove frame 50 50 -0 -0p
+	+ I Raise
+
+DestroyFunc WindowPlacementHandler
+AddToFunc WindowPlacementHandler
+
+Read $[mtp_customize]/WindowPlacement.fvwm
+
+*FvwmEvent: add_window WindowPlacementHandler
+
+
+
+##
+## Some functionality
+##
+
+DestroyFunc ShadeWindow
+AddToFunc ShadeWindow
+	+ I WindowShade Toggle
+
+DestroyFunc RaiseMoveWindow
+AddToFunc RaiseMoveWindow
+	+ I Raise
+	+ H Move
+
+DestroyFunc MoveWindow
+AddToFunc MoveWindow
+	+ H Move
+
+DestroyFunc ResizeWindow
+AddToFunc ResizeWindow
+	+ H Resize
+
+
+
+##
+## Menus
+##
+
+Test (!EnvIsSet theme_menu_separators_off) Read $[mtp_themes]/Menus.fvwm
+Test (!EnvIsSet theme_menu_separators_off) Read $[mtp_customize]/MenuApplication.fvwm
+
+Test (EnvIsSet theme_menu_separators_off) PipeRead 'grep -v "\\"\\" Nop" $[mtp_themes]/Menus.fvwm'
+Test (EnvIsSet theme_menu_separators_off) PipeRead 'grep -v "\\"\\" Nop" $[mtp_customize]/MenuApplication.fvwm'
+
+
+
+##
+## Window list
+##
+
+DestroyFunc WindowListFunc
+AddToFunc WindowListFunc
+	+ I Iconify off
+	+ I FlipFocus
+	+ I Raise
+
+
+
+##
+## Unmanaged window
+##
+
+DestroyFunc UnmanagedWindow
+AddToFunc UnmanagedWindow
+	+ I ThisWindow (State 0) Style $[w.class] !Unmanaged, !StippledTitle
+	+ I TestRc (NoMatch) Style $[w.class] Unmanaged, StippledTitle
+	+ I Current State 0 toggle
+	+ I UpdateStyles
+
+
+##
+## Circulate change desks
+##
+
+DestroyFunc NextPage
+AddToFunc NextPage
+	+ I Exec python $[mtp_scripts]/circulate-switch.py "$[desk.pagesx]" "$[desk.pagesy]" "$[page.nx]" "$[page.ny]" "Next"
+
+
+DestroyFunc PrevPage
+AddToFunc PrevPage
+	+ I Exec python $[mtp_scripts]/circulate-switch.py "$[desk.pagesx]" "$[desk.pagesy]" "$[page.nx]" "$[page.ny]" "Prev"
+
+
+##
+## Terminal
+##
+
+Read $[mtp_customize]/Terminal.fvwm
+
+
+
+##
+## Mouse bindings
+##
+
+Read $[mtp_customize]/MouseBindings.fvwm
+
+
+
+##
+## WindowStyles
+##
+
+Read $[mtp_customize]/WindowStyles.fvwm
+
+
+
+##
+## Key bindings
+##
+
+Read $[mtp_customize]/KeyBindings.fvwm
+

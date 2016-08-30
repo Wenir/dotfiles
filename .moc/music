@@ -1,0 +1,10 @@
+#! /bin/bash
+
+printf     '<?xml version="1.0" encoding="UTF-8"?>'
+printf     '<openbox_pipe_menu>'
+    printf '    <item label="Pause">'
+#    print('        <action name="Execute">')
+#    print('            <command> mocp --pause</command>')
+#    print('        </action>')
+    printf '    </item>'
+printf     '</openbox_pipe_menu>'

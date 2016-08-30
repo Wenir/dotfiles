@@ -1,0 +1,19 @@
+﻿---
+BasedOnStyle: Chromium
+
+BinPackParameters: true
+AllowAllParametersOfDeclarationOnNextLine: true
+ColumnLimit: 110
+IndentWidth: 4
+AccessModifierOffset: -4
+AllowShortIfStatementsOnASingleLine: true
+AlwaysBreakTemplateDeclarations: true
+Standard: C++11
+AllowShortIfStatementsOnASingleLine: false
+SpacesInParentheses: true
+SpacesInSquareBrackets: true
+AlignAfterOpenBracket: false
+BreakBeforeBraces: Stroustrup
+UseTab: Never
+
+...

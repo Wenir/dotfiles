@@ -1,0 +1,71 @@
+## IMPORTANT!!
+IgnoreModifiers L25
+
+DestroyFunc FuncGotoPage
+AddToFunc FuncGotoPage
+    + I GotoPage $0 $1
+    + I Next (CurrentPage, !Iconic, !Sticky, !Shaded, !Focused, !Overlapped) Focus
+
+## Navigate
+Key F1 A C FuncGotoPage 0 0
+Key F2 A C FuncGotoPage 1 0
+Key F3 A C FuncGotoPage 0 1
+Key F4 A C FuncGotoPage 1 1
+
+Key F1 A 4 GotoDesk 0 0
+Key F2 A 4 GotoDesk 0 1
+Key F3 A 4 GotoDesk 0 2
+Key F4 A 4 GotoDesk 0 3
+
+## Applications
+Key R A 4 Exec gmrun
+
+## Audio buttns
+Key XF86AudioPlay A N Exec mpc toggle
+Key XF86AudioPrev A N Exec mpc prev
+Key XF86AudioNext A N Exec mpc next
+
+## Print Screen
+Key Print A N Exec cd ~/Pictures/ScreenShots/; scrot
+Key Print A C Exec cd ~/Pictures/ScreenShots/; scrot -s
+Key Print A 4 Exec cd ~/Pictures/ScreenShots/; scrot -u
+
+## Togle Stayed On Top windows
+Key F5 A C TogleState
+
+# Resize
+Key F WTSF1246 4 Maximize 100 100
+Key Return WTSF1246 4 Maximize 100 100
+
+Key Up WTSF1246 4 Maximize 0 100
+Key Right WTSF1246 4 Maximize 100 0
+
+Key KP_Insert WTSF1246 N WindowCenterResize 1280p 1024p
+
+## Placement
+Key KP_Home WTSF1246 N WindowTopLeft
+Key KP_Up WTSF1246 N WindowTopCenter
+Key KP_Prior WTSF1246 N WindowTopRight
+
+Key KP_Left WTSF1246 N WindowMiddleLeft
+Key KP_Begin WTSF1246 N WindowMiddleCenter
+Key KP_Right WTSF1246 N WindowMiddleRight
+
+Key KP_End WTSF1246 N WindowBottomLeft
+Key KP_Down WTSF1246 N WindowBottomCenter
+Key KP_Next WTSF1246 N WindowBottomRight
+
+Key numbersign A 4 Popup MenuRearrange
+
+## Menus
+Key Menu A N Popup MenuMain In
+Key x A M Popup MenuApplication
+Key space WTSF1246 M Menu WindowMenu Interior 0 0 Nop
+
+## Misc
+Key BackSpace A 4 Function UnmanagedWindow
+Key L A 4 Exec xautolock -locknow
+Key Pause WTSF1246 N Thumbnail
+Key plus A 4 Terminal
+Key Tab A M WindowList (CurrentPage !Desk*) CurrentAtEnd, NoCurrentDeskTitle, NoHotkeys
+

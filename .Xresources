@@ -1,0 +1,54 @@
+nvim.geometry: 211x56+0+0
+
+URxvt.scrollstyle: plain
+URxvt.geometry: 104x30
+URxvt*termName: rxvt-unicode-256color
+URxvt*saveLines: 65535
+URxvt.scrollBar_right: true
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+URxvt.secondaryWheel:     1
+! URxvt.font:               xft:Consolas:size=10
+URxvt.font:               xft:Cousine\ for\ Powerline:size=12
+URxvt.letterSpace:        -1
+URxvt*scrollTtyOutput:    false
+URxvt*scrollWithBuffer:   true
+URxvt*scrollTtyKeypress:  true
+URxvt.perl-ext-common:    default,matcher,clipboard
+
+! Clipboard access
+URxvt*iso14755:           false
+URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+URxvt*keysym.S-C-C:       perl:clipboard:copy
+URxvt*keysym.S-C-V:       perl:clipboard:paste
+
+! Clickable links
+URxvt.url-launcher:       /usr/bin/xdg-open
+URxvt.matcher.button:     1
+
+
+! Background color
+URxvt*background: black
+
+! Цвет шрифта
+URxvt*foreground: white
+
+! Другие цвета
+URxvt*color0: black
+URxvt*color1: red3
+URxvt*color2: green3
+URxvt*color3: yellow3
+URxvt*color4: blue2
+URxvt*color5: magenta3
+URxvt*color6: cyan3
+URxvt*color7: gray90
+URxvt*color8: grey50
+URxvt*color9: red
+URxvt*color10: green
+URxvt*color11: yellow
+URxvt*color12: blue
+URxvt*color13: magenta
+URxvt*color14: cyan
+URxvt*color15: white
+
