@@ -266,6 +266,14 @@ let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_post_private = 1
 " }}}
 
+" UltiSnips plugin {{{
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let g:UltiSnipsEditSplit="vertical"
+" }}}
+
 " Hex mode command {{{
 " ex command for toggling hex mode - define mapping if desired
 command! -bar Hexmode call ToggleHex()
