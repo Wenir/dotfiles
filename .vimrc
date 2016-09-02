@@ -27,7 +27,7 @@ Plugin 'neomake/neomake'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'smancill/conky-syntax.vim'
-Plugin 'Wenir/peaksea-colors.vim'
+Plugin 'jlesquembre/peaksea'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
