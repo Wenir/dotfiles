@@ -4,7 +4,11 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-source /usr/share/doc/pkgfile/command-not-found.bash
+
+# extra/pkgfilet
+if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
+    source /usr/share/doc/pkgfile/command-not-found.bash
+fi
 
 # extra/git
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
