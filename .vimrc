@@ -225,6 +225,8 @@ nnoremap <silent> <CR> :noh<CR><CR>
 
 nnoremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>m :TlistToggle<CR>
+nnoremap <leader>n :tabn<cr>
+nnoremap <leader>p :tabp<cr>
 map <F4> :call g:ClangUpdateQuickFix()<cr>
 map <F12> :emenu Encoding.<Tab>
 nnoremap <C-PageUp> :tabp<CR>
@@ -244,7 +246,7 @@ let g:clang_periodic_quickfix=1
 let g:clang_hl_errors=1
 let g:clang_close_preview=1
 let g:clang_complete_copen=1
-let g:clang_user_options="-std=c++11 -I/usr/lib/clang/3.8.0/include/"
+let g:clang_user_options="-std=c++11 -I/usr/lib/clang/3.8.0/include/ -I/usr/include/zaychenko/"
 let g:clang_format#style_options = {
             \ "AccessModifierOffset" : -4,
             \ "AlwaysBreakTemplateDeclarations" : "true",
@@ -273,6 +275,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=['my_snippets', 'UltiSnips']
 " }}}
 
 " Hex mode command {{{
