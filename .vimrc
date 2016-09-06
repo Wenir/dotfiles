@@ -56,7 +56,7 @@ set breakindent
 set breakindentopt=shift:4
 set wildmode=longest:list,full
 set matchpairs+=<:>
-set noequalalways
+set equalalways
 set winheight=20
 set encoding=utf-8
 set termencoding=utf-8
