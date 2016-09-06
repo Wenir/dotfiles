@@ -13,9 +13,6 @@ fi
 # extra/git
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
     source /usr/share/git/completion/git-prompt.sh
-    GIT=' $(__git_ps1 "[%s]")'
-else
-    GIT=""
 fi
 
 export EDITOR=nvim
@@ -23,4 +20,4 @@ export VISUAL=$EDITOR
 
 shopt -s checkwinsize
 alias ls='ls --color=auto'
-PS1='$(CODE=$?; if [[ $CODE != 0 ]]; then echo "$CODE "; fi)\u@\H \w $GIT\$ '
+PS1='$(CODE=$?; if [[ $CODE != 0 ]]; then echo "$CODE "; fi)\u@\H \w $(if [ -f /usr/share/git/completion/git-prompt.sh ]; then __git_ps1 "[%s]"; fi)\$ '
