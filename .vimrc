@@ -223,7 +223,7 @@ vnoremap * y :execute ":let @/=@\""<CR> :execute "set hlsearch"<CR>
 "This unsets the "last search pattern" register by hitting return
 nnoremap <silent> <CR> :noh<CR><CR>
 
-nnoremap <leader>n :NERDTreeToggle<cr>
+nnoremap <leader>k :NERDTreeToggle<cr>
 nnoremap <leader>m :TlistToggle<CR>
 nnoremap <leader>n :tabn<cr>
 nnoremap <leader>p :tabp<cr>
