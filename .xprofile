@@ -3,3 +3,9 @@ export STEAM_RUNTIME=0
 export VDPAU_DRIVER=va_gl
 export WINEDLLOVERRIDES="winemenubuilder.exe=d"
 
+xinput --set-prop 'ELAN0501:00 04F3:3019 Touchpad' 'Synaptics Edge Scrolling' 1, 1, 0
+xinput --set-prop 'ELAN0501:00 04F3:3019 Touchpad' 'Synaptics Two-Finger Scrolling' 1, 1
+xinput --set-prop 'ELAN0501:00 04F3:3019 Touchpad' 'Synaptics Off' 0
+xinput --set-prop 'ELAN0501:00 04F3:3019 Touchpad' 'Synaptics Tap Action' 2, 3, 0, 0, 1, 3, 2
+xinput --set-prop 'ELAN0501:00 04F3:3019 Touchpad' 'Synaptics Circular Scrolling' 1
+
