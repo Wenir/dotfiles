@@ -13,7 +13,7 @@ conky.config = {
     extra_newline = false,
     own_window = true,
     own_window_class = 'Conky',
-    own_window_type = 'desktop',
+    own_window_type = 'override',
     own_window_transparent = true,
     own_window_hints = 'sticky,skip_pager,skip_taskbar,undecorated,below',
     own_window_argb_visual = true,
@@ -71,7 +71,6 @@ ${color1}CPU Usage:$color   $cpu% (${freq cpu0} MHz) ${alignr 10} ${cpubar cpu0 
 ${color1}Processes:$color   $running_processes${color1}/$color$processes$alignr${color1}Threads:$color $running_threads${color1}/$color$threads
 ${color1}Packages:$color    ${alignr 10}${execpi 3600 checkupdates | wc -l}
 ${hr 1}
-
 ${color1}CPU 1: $color   ${cpu cpu1}% ${alignr 10} ${cpugraph cpu1 22,320 color1 color1 -l}
 ${color1}CPU 2: $color   ${cpu cpu2}% ${alignr 10} ${cpugraph cpu2 22,320 color1 color1 -l}
 ${color1}CPU 3: $color   ${cpu cpu3}% ${alignr 10} ${cpugraph cpu3 22,320 color1 color1 -l}
@@ -81,18 +80,16 @@ ${color1}Disk IO: $color ${diskio /dev/sda} ${alignr 10} ${diskiograph /dev/sda 
 ${hr 1}
 
 ${color1}/              ${fs_used /}/${fs_size /} $color${alignr 10}${fs_bar 6,202 /}
-${color1}/disks/Files/   ${fs_used /disks/Files}/${fs_size /disks/Files} $color${alignr 10}${fs_bar 6,202 /disks/Files}
+${color1}/Files/        ${fs_used /disks/Files}/${fs_size /disks/Files} $color${alignr 10}${fs_bar 6,202 /disks/Files}
 ${hr 1}
-
-${scroll 30 4 ${mpd_title}} ${alignr 1}${mpd_percent}% ${mpd_bitrate}
-
+${execi 60 ( cd /home/wenir/projects/timetable/bin/ && ./main ) }
 ${hr 1}
 
 ${if_existing /sys/class/net/wlp3s0/operstate up}${color1}W: Down:${color1} ${downspeedf wlp3s0} k/s (${tcp_portmon 32768 61000 count})
-${color1}${downspeedgraph wlp3s0 104,511 color1 color1 -l}
+${color1}${downspeedgraph wlp3s0 52,511 color1 color1 -l}
 ${color1}Up:${color1} ${upspeedf wlp3s0} k/s (${tcp_portmon 1 32767 count})
-${color1}${upspeedgraph   wlp3s0 104,511 color1 color1 -l}
-${hr 1}${endif}
+${color1}${upspeedgraph   wlp3s0 52,511 color1 color1 -l}
+${endif}
 ]];
 
 -- ${color1}Weather:$color ${alignr 10}${execi 300 /home/wenir/bin/weather.sh 323903}

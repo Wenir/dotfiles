@@ -11,7 +11,6 @@ Plugin 'VundleVim/Vundle.vim'
 " User defined plugins
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'scrooloose/nerdtree'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'sigidagi/vim-cmake-project'
@@ -28,6 +27,15 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'smancill/conky-syntax.vim'
 Plugin 'jlesquembre/peaksea'
+Plugin 'tpope/vim-obsession'
+Plugin 'dhruvasagar/vim-prosession'
+Plugin 'vifm/neovim-vifm'
+Plugin 'Wenir/true-colors.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+Plugin 'edkolev/promptline.vim'
+Plugin 'wesQ3/vim-windowswap'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -38,22 +46,32 @@ filetype plugin indent on    " required
 " Main settings
 syntax on
 let mapleader=","
-colorscheme peaksea
+
+colorscheme true-colors
 set background=dark
-set autochdir
+
+set noautochdir
+
 set autoindent
 set smartindent
+set breakindent
+set breakindentopt=shift:4
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
 set number
-set relativenumber
+set norelativenumber
 set colorcolumn=80
+
 set hlsearch
 set incsearch
+
 set splitright
-set breakindent
-set breakindentopt=shift:4
+
+set undolevels=1000
+set wildignore+=*.swp,*.bak,*.pyc,*.class,*.o
+
 set wildmode=longest:list,full
 set matchpairs+=<:>
 set equalalways
@@ -63,6 +81,19 @@ set termencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf8,koi8r,cp1251,cp866,ucs-2le
 set laststatus=2
+filetype plugin on
+set path+=**
+set wildmenu
+set visualbell
+set cursorline
+
+set nobackup
+set noswapfile
+
+set undodir=~/.vim/undodir
+set undofile
+set fillchars+=vert:│
+
 " set statusline=%f\ %m%r%h%w\ %y\ %{&ff}\ %{&enc}->%{&fenc}%=col:%2c%2V\ line:%2l/%L\ [%2p%%]\ [ch:%3b\ hex:%2B]
 " Options for NeoVim
 if exists(':tnoremap')
@@ -70,9 +101,10 @@ if exists(':tnoremap')
 endif
 
 " Cursor shape {{{
-" let &t_SI = "\<Esc>[6 q"
-" let &t_SR = "\<Esc>[4 q"
-" let &t_EI = "\<Esc>[2 q"
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
 " }}}
 " Menu for reopen file with encoding {{{
 set wildmenu
@@ -107,33 +139,38 @@ function! CustomFoldText()
 endfunction
 " }}}
 set foldtext=CustomFoldText()
-set foldcolumn=4
+set foldcolumn=1
 set foldmethod=syntax
 set foldlevel=1
 " }}}
 " Extend standart peaksea colorscheme {{{
 function! ChangeScheme()
-    highlight VertSplit     guifg=#c0c0c0 guibg=#c0c0c0 gui=NONE
-    highlight FoldColumn    guifg=#e0e0e0 guibg=#1b1b1b gui=NONE
-    highlight LineNr        guifg=#b0b0b0 guibg=#1b1b1b gui=NONE
-    highlight CursorLineNr  guibg=#1b1b1b
-    highlight ColorColumn   ctermbg=DarkGreen ctermfg=White
-    highlight FoldColumn    ctermbg=Black
-    if &t_Co==256
-        highlight FoldColumn   ctermfg=NONE ctermbg=235
-        highlight LineNr       ctermfg=NONE ctermbg=235
-        highlight CursorLineNr              ctermbg=235
-        highlight Cursor       ctermfg=16   ctermbg=46  cterm=NONE
-    endif
-    highlight ExtraWhitespace ctermbg=red guibg=red
+    highlight Normal ctermbg=0
+    highlight FoldColumn   ctermfg=NONE ctermbg=233
+    highlight VertSplit    ctermfg=0    ctermbg=20
+    highlight TabLineFill  ctermfg=233
+    highlight TabLine      ctermfg=NONE ctermbg=233
+"     highlight VertSplit     guifg=#c0c0c0 guibg=#c0c0c0 gui=NONE
+"     highlight FoldColumn    guifg=#e0e0e0 guibg=#1b1b1b gui=NONE
+"     highlight LineNr        guifg=#b0b0b0 guibg=#1b1b1b gui=NONE
+"     highlight CursorLineNr  guibg=#1b1b1b
+"     highlight ColorColumn   ctermbg=DarkGreen ctermfg=White
+"     highlight FoldColumn    ctermbg=Black
+"     if &t_Co==256
+"         highlight SignColumn                ctermbg=235
+"         highlight LineNr       ctermfg=NONE ctermbg=235
+"         highlight TabLineFill               ctermbg=18
+"         highlight TabLine                   ctermbg=18
+"     endif
+"     highlight ExtraWhitespace ctermbg=red guibg=red
 endfunction
 
 autocmd ColorScheme * call ChangeScheme()
 call ChangeScheme()
 " }}}
 " Auto switch between relative and norelative numbering {{{
-autocmd InsertEnter * :set norelativenumber
-autocmd InsertLeave * :set relativenumber
+" autocmd InsertEnter * :set norelativenumber
+" autocmd InsertLeave * :set relativenumber
 " }}}
 " Restore coursor position {{{
 augroup resCur
@@ -184,7 +221,7 @@ nnoremap <C-l> <C-w>l
 " }}}
 " Autocommands {{{
 autocmd FileType c,cpp,objc set cindent
-autocmd FileType c,cpp,objc set expandtab
+autocmd FileType c,cpp,objc,asm set expandtab
 autocmd FileType c,cpp,objc  map <f3> :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vmap <f3> :ClangFormat<CR>
 autocmd FileType c,cpp,objc imap <f3> <esc>:ClangFormat<CR>
@@ -199,6 +236,7 @@ autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd Syntax !help syn match ExtraWhitespace /[^\t]\zs\t\+/
 
 autocmd BufWritePost *.cpp Neomake!
+autocmd BufWritePost *.S Neomake!
 " }}}
 " Key bindings {{{
 
@@ -223,30 +261,41 @@ vnoremap * y :execute ":let @/=@\""<CR> :execute "set hlsearch"<CR>
 "This unsets the "last search pattern" register by hitting return
 nnoremap <silent> <CR> :noh<CR><CR>
 
+" Change behaviour so that it jumps to the next row in the editor
+nnoremap j gj
+nnoremap k gk
+
+" russian keyboard layout
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+nnoremap о gj
+nnoremap л gk
+
+
 nnoremap <leader>k :NERDTreeToggle<cr>
 nnoremap <leader>m :TlistToggle<CR>
 nnoremap <leader>n :tabn<cr>
 nnoremap <leader>p :tabp<cr>
+nnoremap <leader>s :Prosession .<cr>
 map <F4> :call g:ClangUpdateQuickFix()<cr>
 map <F12> :emenu Encoding.<Tab>
 nnoremap <C-PageUp> :tabp<CR>
 nnoremap <C-PageDown> :tabn<CR>
+nmap <F8> :TagbarToggle<CR>
 " }}}
 
 " airline plugin {{{
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 " }}}
 
 " clang_complete plugin {{{
 let g:clang_snippets=1
 let g:clang_snippets_engine = 'ultisnips'
-let g:clang_periodic_quickfix=1
+let g:clang_periodic_quickfix=0
 let g:clang_hl_errors=1
 let g:clang_close_preview=1
 let g:clang_complete_copen=1
 let g:clang_user_options="-std=c++11 -I/usr/lib/clang/3.8.0/include/ -I/usr/include/zaychenko/"
+let g:clang_library_path="/usr/lib/libclang.so"
 let g:clang_format#style_options = {
             \ "AccessModifierOffset" : -4,
             \ "AlwaysBreakTemplateDeclarations" : "true",
@@ -276,6 +325,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=['my_snippets', 'UltiSnips']
+" }}}
+
+" GitGlutter plugin {{{
+let g:gitgutter_sign_column_always = 1
 " }}}
 
 " Hex mode command {{{

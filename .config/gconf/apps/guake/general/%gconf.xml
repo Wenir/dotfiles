@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <gconf>
 	<entry name="window_height_f" mtime="1472064791" type="float" value="40"/>
-	<entry name="window_height" mtime="1472064791" type="int" value="40"/>
+	<entry name="window_height" mtime="1473256603" type="int" value="38"/>
 	<entry name="compat_delete" mtime="1472064791" type="string">
 		<stringvalue>delete-sequence</stringvalue>
 	</entry>

@@ -5,16 +5,21 @@ URxvt.geometry: 104x30
 URxvt*termName: rxvt-unicode-256color
 URxvt*saveLines: 65535
 URxvt.scrollBar_right: true
+URxvt.scrollBar: false
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 URxvt.secondaryWheel:     1
+! URxvt.transparent:   true
+! URxvt.shading:       20
+URxvt*.depth:        32
+URxvt*background: rgba:0000/0000/0200/e800
 ! URxvt.font:               xft:Consolas:size=10
 URxvt.font:               xft:Cousine\ for\ Powerline:size=12
 URxvt.letterSpace:        -1
 URxvt*scrollTtyOutput:    false
 URxvt*scrollWithBuffer:   true
 URxvt*scrollTtyKeypress:  true
-URxvt.perl-ext-common:    default,matcher,clipboard
+URxvt.perl-ext-common:    default,matcher,clipboard,new-window
 
 ! Clipboard access
 URxvt*iso14755:           false
@@ -27,9 +32,11 @@ URxvt*keysym.S-C-V:       perl:clipboard:paste
 URxvt.url-launcher:       /usr/bin/xdg-open
 URxvt.matcher.button:     1
 
+! Ctrl+Shift+N to create new window
+URxvt.keysym.Control-Shift-N: perl:new-window
 
 ! Background color
-URxvt*background: black
+! URxvt*background: black
 
 ! Цвет шрифта
 URxvt*foreground: white
@@ -52,3 +59,11 @@ URxvt*color13: magenta
 URxvt*color14: cyan
 URxvt*color15: white
 
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #273238, #273238, #1e2529
+rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844

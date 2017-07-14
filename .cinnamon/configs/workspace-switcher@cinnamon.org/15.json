@@ -1,6 +1,6 @@
 {
     "display_type": {
-        "type": "radiogroup",
+        "type": "combobox",
         "description": "Type of display",
         "default": "visual",
         "options": {
@@ -9,5 +9,5 @@
         },
         "value": "visual"
     },
-    "__md5__": "e2caba3e59829364142fec1fc7e3095f"
+    "__md5__": "a31f7b47553cfbf2ecd3b4cd6c987b23"
 }

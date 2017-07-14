@@ -1,4 +1,8 @@
 {
+    "section1": {
+        "type": "section",
+        "description": "Behavior"
+    },
     "launcherList": {
         "type": "generic",
         "default": [
@@ -16,10 +20,10 @@
         ]
     },
     "allow-dragging": {
-        "type": "checkbox",
+        "type": "switch",
         "default": true,
         "description": "Allow dragging of launchers",
         "value": true
     },
-    "__md5__": "38317f4f8aa3acc0fd02022803f45563"
+    "__md5__": "366f8e129abf9622014c95f26ce5aa0f"
 }

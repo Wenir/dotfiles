@@ -1,8 +1,45 @@
 {
+    "section1": {
+        "type": "section",
+        "description": "Menu"
+    },
+    "playerControl": {
+        "type": "switch",
+        "default": true,
+        "description": "Control Players",
+        "value": true
+    },
+    "extendedPlayerControl": {
+        "type": "switch",
+        "default": false,
+        "description": "Show Loop and Shuffle controls",
+        "dependency": "playerControl",
+        "indent": true,
+        "value": false
+    },
+    "_knownPlayers": {
+        "type": "generic",
+        "default": [
+            "banshee",
+            "vlc",
+            "rhythmbox"
+        ],
+        "value": [
+            "banshee",
+            "vlc",
+            "smplayer",
+            "cantata"
+        ]
+    },
+    "section2": {
+        "type": "section",
+        "description": "Panel"
+    },
     "showtrack": {
-        "type": "checkbox",
+        "type": "switch",
         "default": false,
         "description": "Show song information on the panel",
+        "dependency": "playerControl",
         "value": false
     },
     "truncatetext": {
@@ -28,57 +65,17 @@
         "value": "mute"
     },
     "showalbum": {
-        "type": "checkbox",
+        "type": "switch",
         "default": false,
         "description": "Show album art as icon",
+        "dependency": "playerControl",
         "value": false
     },
     "hideSystray": {
-        "type": "checkbox",
+        "type": "switch",
         "description": "Hide system tray icons for compatible players",
         "default": true,
         "value": true
     },
-    "separator": {
-        "type": "separator"
-    },
-    "playerControl": {
-        "type": "checkbox",
-        "default": true,
-        "description": "Control Players",
-        "value": true
-    },
-    "extendedPlayerControl": {
-        "type": "checkbox",
-        "default": false,
-        "description": "Show Loop and Shuffle controls",
-        "dependency": "playerControl",
-        "indent": true,
-        "value": false
-    },
-    "positionLabelType": {
-        "type": "combobox",
-        "default": "length",
-        "description": "Position label",
-        "options": {
-            "Song length": "length",
-            "Countdown": "countdown"
-        },
-        "dependency": "playerControl",
-        "indent": true,
-        "value": "length"
-    },
-    "_knownPlayers": {
-        "type": "generic",
-        "default": [
-            "banshee",
-            "vlc"
-        ],
-        "value": [
-            "banshee",
-            "vlc",
-            "smplayer"
-        ]
-    },
-    "__md5__": "59367c467d00034c7a3ab517fbb263dc"
+    "__md5__": "5ded76da252c95dec6318f480a942bc2"
 }

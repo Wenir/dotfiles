@@ -1,6 +1,6 @@
 {
     "labelinfo": {
-        "type": "radiogroup",
+        "type": "combobox",
         "description": "Display",
         "default": "nothing",
         "options": {
@@ -11,5 +11,5 @@
         },
         "value": "nothing"
     },
-    "__md5__": "57d6e284d97de2f0429316c834972bc7"
+    "__md5__": "474bbdcab8afb7e0a0aae6e895fe087d"
 }

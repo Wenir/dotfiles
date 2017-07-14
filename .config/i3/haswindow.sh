@@ -5,4 +5,5 @@ while read line;
 do
     xprop -id "$line";
 done                                     |
+grep WM_CLASS                            |
 grep $1
