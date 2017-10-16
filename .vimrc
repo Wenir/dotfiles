@@ -36,6 +36,14 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'edkolev/promptline.vim'
 Plugin 'wesQ3/vim-windowswap'
+Plugin 'jceb/vim-orgmode'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-repeat'
+Plugin 'vim-scripts/utl.vim'
+Plugin 'chrisbra/NrrwRgn'
+Plugin 'mattn/calendar-vim'
+Plugin 'inkarkat/vim-SyntaxRange'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
