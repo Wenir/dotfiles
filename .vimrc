@@ -12,7 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Rip-Rip/clang_complete'
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 Plugin 'sigidagi/vim-cmake-project'
 Plugin 'kana/vim-operator-user'
 Plugin 'rhysd/vim-clang-format'
@@ -20,7 +20,7 @@ Plugin 'christoomey/vim-run-interactive'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'taglist.vim'
-Plugin 'jmcantrell/vim-virtualenv'
+" Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'janko-m/vim-test'
 Plugin 'neomake/neomake'
 Plugin 'airblade/vim-gitgutter'
@@ -29,12 +29,13 @@ Plugin 'smancill/conky-syntax.vim'
 Plugin 'jlesquembre/peaksea'
 Plugin 'tpope/vim-obsession'
 Plugin 'dhruvasagar/vim-prosession'
-Plugin 'vifm/neovim-vifm'
+" Plugin 'vifm/neovim-vifm'
 Plugin 'Wenir/true-colors.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'edkolev/promptline.vim'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
@@ -66,11 +67,11 @@ set breakindent
 set breakindentopt=shift:4
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set noexpandtab
 
 set number
 set norelativenumber
-set colorcolumn=80
+set colorcolumn=0
 
 set hlsearch
 set incsearch
@@ -102,6 +103,8 @@ set undodir=~/.vim/undodir
 set undofile
 set fillchars+=vert:│
 
+set mouse=a
+
 " set statusline=%f\ %m%r%h%w\ %y\ %{&ff}\ %{&enc}->%{&fenc}%=col:%2c%2V\ line:%2l/%L\ [%2p%%]\ [ch:%3b\ hex:%2B]
 " Options for NeoVim
 if exists(':tnoremap')
@@ -109,10 +112,27 @@ if exists(':tnoremap')
 endif
 
 " Cursor shape {{{
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" let &t_SI = "\<Esc>[6 q"
+" let &t_SR = "\<Esc>[4 q"
+" let &t_EI = "\<Esc>[2 q"
+" Changing cursor shape per mode
+" 1 or 0 -> blinking block
+" 2 -> solid block
+" 3 -> blinking underscore
+" 4 -> solid underscore
+if exists('$TMUX')
+    " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>[6 q\<Esc>\\"
+    let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
+    autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[0 q\033\\"
+else
+	let &t_SI = "\<Esc>[6 q"
+    let &t_SR = "\<Esc>[4 q"
+    let &t_EI = "\<Esc>[2 q"
+    autocmd VimLeave * silent !echo -ne "\033[0 q"
+endif
 " }}}
 " Menu for reopen file with encoding {{{
 set wildmenu
@@ -229,7 +249,7 @@ nnoremap <C-l> <C-w>l
 " }}}
 " Autocommands {{{
 autocmd FileType c,cpp,objc set cindent
-autocmd FileType c,cpp,objc,asm set expandtab
+autocmd FileType c,cpp,objc,asm set noexpandtab
 autocmd FileType c,cpp,objc  map <f3> :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vmap <f3> :ClangFormat<CR>
 autocmd FileType c,cpp,objc imap <f3> <esc>:ClangFormat<CR>
@@ -338,6 +358,17 @@ let g:UltiSnipsSnippetDirectories=['my_snippets', 'UltiSnips']
 " GitGlutter plugin {{{
 let g:gitgutter_sign_column_always = 1
 " }}}
+
+" Tmuxline plugin {{{
+let g:airline#extensions#tmuxline#enabled = 0
+" }}}
+
+let g:promptline_preset = {
+        \'a' : [ promptline#slices#host({ 'only_if_ssh': 1 }) ],
+        \'b' : [ promptline#slices#user() ],
+        \'c' : [ promptline#slices#cwd() ],
+        \'y' : [ promptline#slices#vcs_branch() ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
 
 " Hex mode command {{{
 " ex command for toggling hex mode - define mapping if desired
