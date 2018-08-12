@@ -43,6 +43,11 @@ set $workback    #000000
 set $focuscolor  #1199ff
 set $statuscolor #88ffff
 
+# apps
+
+set $browser waterfox
+set $browser_class "Waterfox"
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 11
@@ -192,7 +197,7 @@ bindsym $mod+r mode "resize"
 mode "focused" {
 
     # hardcoded focus keybindings
-    bindsym b [class="(?i)chromium"] focus;    mode "default"
+    bindsym b [class=$browser_class]    focus; mode "default"
     bindsym m [class="(?i)thunderbird"] focus; mode "default"
 
     # keybindings for marking and jumping to clients
@@ -231,7 +236,7 @@ mode "run" {
     bindsym s mode "default"; exec --no-startup-id teiler
     bindsym v mode "default"; exec --no-startup-id urxvt -name nvim -e /usr/bin/nvim
     bindsym t mode "default"; exec --no-startup-id urxvt
-    bindsym b mode "default"; exec --no-startup-id chromium
+    bindsym b mode "default"; exec --no-startup-id $browser
     bindsym l mode "default"; exec --no-startup-id cinnamon-screensaver-command -l
     bindsym o mode "default"; exec --no-startup-id cinnamon-session-quit --logout
     bindsym p mode "default"; exec --no-startup-id cinnamon-session-quit --power-off
@@ -272,19 +277,19 @@ smart_gaps on
 smart_borders on
 # gaps
 
-bindsym $mod+8 workspace $ws8;  exec --no-startup-id $haswindow_cmd chromium || /usr/bin/chromium
+bindsym $mod+8 workspace $ws8;  exec --no-startup-id $haswindow_cmd $browser_class || $browser
 bindsym $mod+9 workspace $ws9;  exec --no-startup-id $haswindow_cmd cantata || /usr/bin/cantata
 bindsym $mod+0 workspace $ws10; exec --no-startup-id $haswindow_cmd Thunderbird || /usr/bin/thunderbird
 
-assign [class="chromium"]    $ws8
+assign [class=$browser_class]    $ws8
 assign [class="cantata"]     $ws9
 assign [class="Thunderbird"] $ws10
 
 # Player control
-bindsym XF86AudioPlay        exec --no-startup-id /usr/bin/mpc toggle
-bindsym XF86AudioStop        exec --no-startup-id /usr/bin/mpc stop
-bindsym XF86AudioPrev        exec --no-startup-id /usr/bin/mpc prev
-bindsym XF86AudioNext        exec --no-startup-id /usr/bin/mpc next
+# bindsym XF86AudioPlay        exec --no-startup-id /usr/bin/mpc toggle
+# bindsym XF86AudioStop        exec --no-startup-id /usr/bin/mpc stop
+# bindsym XF86AudioPrev        exec --no-startup-id /usr/bin/mpc prev
+# bindsym XF86AudioNext        exec --no-startup-id /usr/bin/mpc next
 
 # Audio volume control
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/volume.sh up
