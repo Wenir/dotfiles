@@ -40,16 +40,15 @@ This function should only modify configuration layer settings."
      auto-completion
      ;; better-defaults
      emacs-lisp
+	 (lsp :variables lsp-ui-sideline-enable nil)
      (c-c++ :variables
-			c-c++-default-mode-for-headers 'c++-mode)
+			c-c++-default-mode-for-headers 'c++-mode
+			c-c++-backend 'lsp-ccls
+			c-c++-lsp-executable (file-truename "~/build/ccls/Release/ccls"))
      git
 	 ;; python
      ;; markdown
 	 org
-	 (lsp :variables lsp-ui-sideline-enable nil)
-	 (lsp-c-c++ :variables
-				cquery-executable (file-truename "~/build/cquery/release/release/bin/cquery")
-				cquery-extra-init-params '(:extraClangArgs " " :cacheFormat "msgpack"))
 	 ;; cquery-executable (file-truename "~/build/ccls/release/ccls")
 	 ;; cquery-extra-init-params '(:extraClangArgs " " :cacheFormat "binary"))
      (shell :variables
@@ -69,8 +68,10 @@ This function should only modify configuration layer settings."
      imenu-list
      graphviz
 	 plantuml
-	 lsp
 	 google-play-music
+	 scheme
+	 (ranger :variables
+              ranger-show-preview t)
      )
 
    ;; List of additional packages that will be installed without being
@@ -207,7 +208,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 16
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -493,6 +494,11 @@ you should place your code here."
 			  (c-toggle-electric-state -1)
 			  (c-toggle-electric-state -1)))
 
+  (setq verilog-indent-level 4)
+  (setq verilog-indent-level-behavioral 4)
+  (setq verilog-indent-level-declaration 4)
+  (setq verilog-indent-level-module 4)
+  (setq verilog-indent-level-directive 4)
 
   (setq org-capture-templates
         (quote (("t" "Todo" entry (file+headline "~/Nextcloud/Documents/org-mode/todo.org" "Inbox")
@@ -537,6 +543,7 @@ you should place your code here."
 	   (dot . t)
 	   (C . t)
 	   (emacs-lisp . t)
+	   (shell . t)
 	   ))
 	(setq org-html-htmlize-output-type 'css))
 
