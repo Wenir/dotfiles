@@ -1,0 +1,19 @@
+#!/bin/python
+
+import urllib.request, json
+
+city = "Kharkiv"
+api_key = "11ff385bc6976d39f4453b2dc9e8e869"
+units = "Metric"
+unit_key = "C"
+
+try:
+    weather = eval(str(urllib.request.urlopen("http://api.openweathermap.org/data/2.5/weather?q={}&APPID={}&units={}".format(city, api_key, units)).read())[2:-1])
+
+    info = weather["weather"][0]["description"].capitalize()
+    temp = int(float(weather["main"]["temp"]))
+
+    print("%s, %i °%s" % (info, temp, unit_key))
+
+except:
+    pass
