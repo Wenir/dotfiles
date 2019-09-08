@@ -1,20 +1,8 @@
 [user]
 	email = wenirr@gmail.com
-	name = Wenir
+	name = Maksym Karasevych
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --all --graph --oneline
 	it = !git init && git commit -m “root” --allow-empty
 [github]
 	user = wenir
-[merge]
-	tool = nvimdiff
-[mergetool]
-    prompt = true
-[diff]
-    tool = nvimdiff
-[difftool]
-    prompt = false
-[difftool "nvimdiff"]
-    cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
-[mergetool "nvimdiff"]
-    cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\" \"$MERGED\""
