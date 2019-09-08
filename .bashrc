@@ -15,8 +15,8 @@ if [ -f /usr/share/git/completion/git-prompt.sh ]; then
     source /usr/share/git/completion/git-prompt.sh
 fi
 
-#community/neovim
-export EDITOR=nvim
+#emacs
+export EDITOR="emacsclient -t -a=\"\""
 export VISUAL=$EDITOR
 #see ssh wiki page
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
